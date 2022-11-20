@@ -1,0 +1,123 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thyroid Predictor</title>
+   
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bdfdf182e9.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   
+
+	<style>
+    body{
+        background: #F6FAFD;
+        color: red;
+    }
+    #content{
+        margin-top: 0;
+        margin-right: 0;
+    }
+    #pic {
+        overflow: hidden;
+        margin-top: 0;
+        margin-right: 0;
+    }
+    #pic img {
+        clip-path: polygon(100% 0%, 34% 0%, 3% 18%, 1% 22%, 1% 27%, 3% 32%, 29% 96%, 32% 98%, 36% 98%, 40% 97%, 100% 76%);
+        
+    }
+    #stats {
+        font-size: 1.2em;
+    }
+    #creds {
+        font-size: 0.8em;
+    }
+    #creds a{
+        color: white;
+    }
+    #submit {
+        background-color: #28b20a;
+        color: white;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+    }
+    #submit:hover {
+        box-shadow: 1px 1px 10px grey;
+    }
+	#result {
+		color: white;
+	}
+    @media (max-width: 767px) {
+        .hidden-sm {
+            display: none !important;
+        }
+        #inner {
+            margin-left: 0;
+        }
+    }
+    </style>
+    
+</head>
+
+<body>
+    <div class="container-fluid">
+        
+        <div id="content">
+		<div class="container-fluid" style="margin-right: 0;">
+		  <div class="row">
+			<div class="col-sm-12 col-lg-6"  style="margin-top: 6em;">
+                <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F6FAFD; margin-left: 4em;">
+                    <div class="container-fluid" style="font-size: 1.1em;">
+                        <a class="navbar-brand" href="/" style="font-family: 'signika'; font-size: 1.5em; color : #555;">
+                            <img src="website\static\images\icon3.png" width="50" height="50" class="d-inline-block align-center" alt="">
+                                Thyroeidís</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                      <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav mr-auto">
+                          <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/info">About Thyroid disease</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/news">News</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/test">Take the test</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                </nav>
+            <div class="container" id="inner"  style="margin-top: 1.5em; margin-left: 4em;">
+              <p style="font-size: 4em; color: red;">Thyroid <br> Disease Predictor</p>
+                <p style="font-size: 1.2em; margin-bottom: 0em; color: #555555;">                      
+                5 in every 100 people are estimated to have thyroid dysfunction. This disease cannot be cured but can be treated before it becomes severe. If left untreated or uncontrolled, it eventually causes goitre in patients.
+                </p>
+                <br>
+                <a href="/test" class="btn btn-primary" style="font-size: 1.2em; border: none; background-color: rgb(231, 31, 31); border-radius: 40px;" aria-disabled="true">
+                    Take the test now &nbsp; <i class="fa fa-arrow-right"></i></a>
+                   
+              </div>
+            </div>
+			<div class="col-lg-6 hidden-sm" id="pic" style="margin-right: 0; margin-top: 3em;">
+                <img src="website\static\images\main_page.jpg" style="height:80%; width: 100%;"class="img-rounded" alt="Gesture">
+            </div>
+			</div>
+			 
+		  </div>
+        </div>
+		</div>
+</body>
+
+</html>

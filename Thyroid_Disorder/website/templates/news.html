@@ -1,0 +1,91 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>News on Thyroid disease</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   
+
+	<style>
+    body{
+        background: #F6FAFD;
+        color: red;
+    }
+    .question a {
+        color: #555555;
+        font-size: 1.7em;
+    }
+    .answer {
+        color: red;
+        font-size: 1.2em;
+    }
+    @media (max-width: 767px) {
+        iframe {
+            width: 90%;
+        }
+        img {
+            width: 95%;
+        }
+    }
+    </style>
+    
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F6FAFD; margin-left: 4em;">
+            <div class="container-fluid" style="font-size: 1.1em;">
+              <a class="navbar-brand" href="/home" style="font-family: 'signika'; font-size: 1.5em; color : #555;">
+                <img src="website\static\images\icon3.png" width="50" height="50" class="d-inline-block align-center" alt="">
+                    Thyroeidís</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/info">About Throid disease</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">News Related to Thyroid</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/test">Take the test</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+        <div id="content" style="margin-top: 2em;">
+		<div class="container" >
+            <h1 style="color: #555;">News</h1>
+            <br>
+		  <div class="row" style="padding-top: 3em; border-top: 5px solid red;">
+			<div class="col-sm-12 col-lg-10" >
+
+                    {% for key, value in results.items() %}
+                    <p class="question"><a href={{value['Url']}}>{{ value["Title"] }}</a></p>
+                    <p class="answer">POSTED ON: {{ value["Published Date"] }}</p>
+                    <br>
+                    {% endfor %}               
+                    
+            </div>
+			
+			</div>
+			 
+		  </div>
+        </div>
+		</div>
+</body>
+
+</html>

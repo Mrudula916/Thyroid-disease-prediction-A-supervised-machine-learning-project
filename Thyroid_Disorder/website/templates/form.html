@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thyroid Predictor</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@500&display=swap" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <style>
+    body{
+        background: #F6FAFD;
+    }
+    #parent {
+      display: none;
+    }
+    #td {
+      display: none;
+    }
+    #nottd {
+      display: none;
+    }
+    @media (max-width: 767px) {
+        #pred {
+          margin-top: 10%;
+          margin-left: 0;
+        }
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F6FAFD; margin-left: 4em;">
+    <div class="container-fluid" style="font-size: 1.1em;">
+      <a class="navbar-brand" href="/home" style="font-family: 'signika'; font-size: 1.5em; color : #555;">
+        <img src="website\static\images\icon3.png" width="30" height="30" class="d-inline-block align-top" alt="/">
+            Thyroeidís</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/info">About Thyroid Disease</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/news">News</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Take the test</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+<div class="container">
+<form action = "/predict" id="upload-details" method="post">
+  <h1>Take your Test NOW!!!!</h1>
+  <div class="row" style="padding-top: 1em; border-top: 5px solid red;">
+  <div class="col-sm-12 col-lg-8 pt-4 pl-5 pb-3"  style="background-color: white; border-radius: 20px; box-shadow: 4px 4px 10px silver;">
+    
+    <div class="row" >
+      <div class="col-sm-6 col-lg-6">
+        <label for="pwd" name="thyroxine">Are you on Thyroxine Medication?</label><br>
+        <label class="radio-inline"><input type="radio" value="yes" name="onthyroxine">&nbsp;Yes</label>&nbsp;&nbsp;
+        <label class="radio-inline"><input type="radio" value="no" name="onthyroxine">&nbsp;No</label>
+      </div>
+      <div class="col-sm-6 col-lg-6">
+        <label for="pwd">Are you on Antithyroid Medication?</label><br>
+        <label class="radio-inline"><input type="radio" value="yes" name="antithyroidmed">&nbsp;Yes</label>&nbsp;&nbsp;
+        <label class="radio-inline"><input type="radio" value="no" name="antithyroidmed">&nbsp;No</label>
+      </div>
+    </div><br><br>
+    <div class="row">
+      <div class="col-sm-6 col-lg-6">
+        <label for="pwd">Were you diagnosed with hypothyroid?</label><br>
+        <label class="radio-inline"><input type="radio" value="yes" name="hypothyroid">&nbsp;Yes</label>&nbsp;&nbsp;
+        <label class="radio-inline"><input type="radio" value="no" name="hypothyroid">&nbsp;No</label>
+        </div>
+        <div class="col-sm-6 col-lg-6">
+          <label for="pwd">Were you diagnosed with goitre?</label><br>
+          <label class="radio-inline"><input type="radio" value="yes" name="goitre">&nbsp;Yes</label>&nbsp;&nbsp;
+          <label class="radio-inline"><input type="radio" value="no" name="goitre">&nbsp;No</label>
+          </div>
+    </div><br>
+    <div class="row">
+      <div class="col-sm-6 col-lg-6">
+        <label for="pwd">Are you suffering from Psychiatric Disorders?</label><br>
+        <label class="radio-inline"><input type="radio" value="yes" name="psych">&nbsp;Yes</label>&nbsp;&nbsp;
+        <label class="radio-inline"><input type="radio" value="no" name="psych">&nbsp;No</label>
+        <small id="psychp" class="form-text text-muted">*Includes Anxiety, Depression and Psychosis which might be major pointer to Thyroid dysfunction.
+          This information is required only for the purposes of prediction of Thyroid Disease.
+        </small>
+        </div>
+        <div class="col-sm-6 col-lg-6">
+          <label for="pwd">Are you Pregnant?</label><br>
+          <label class="radio-inline"><input type="radio" value="yes" name="pregnant">&nbsp;Yes</label>&nbsp;&nbsp;
+          <label class="radio-inline"><input type="radio" value="no" name="pregnant">&nbsp;No</label>
+          </div>
+      </div><br>
+    <div class="row">
+      <p style="font-weight: lighter;" >*Please enter the following values from a recently generated test result</p>
+      <div class="col-sm-5 col-lg-5">
+        <label for="pwd">Thyroid Stimulating Hormone (TSH)</label>
+        <div class="input-group mb-3">
+          <input type="number" step="0.0001" class="form-control" name="tsh">
+          <div class="input-group-append">
+            <span class="input-group-text">mIU/L</span>
+          </div>
+        </div>
+      </div>&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="col-sm-5 col-lg-5">
+        <label for="pwd">Triiodothyronine (T3)</label>
+        <div class="input-group mb-3">
+          <input type="number" step="0.0001" class="form-control" name="t3">
+          <div class="input-group-append">
+            <span class="input-group-text">nmol/L</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col-sm-5 col-lg-5">
+        <label for="pwd"> Total Thyroxine (TT4)</label>
+        <div class="input-group mb-3">
+          <input type="number" step="0.0001" class="form-control" name="tt4">
+          <div class="input-group-append">
+            <span class="input-group-text">nmol/L</span>
+          </div>
+        </div>
+      </div>&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="col-sm-5 col-lg-5">
+        <label for="pwd">Free Thyroxine Index (FTI)</label>
+        <div class="input-group mb-3">
+          <input type="number" step="0.0001" class="form-control" name="fti">
+        </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-11">
+        <center><button type="submit" class="btn btn-success">Submit</button></center>
+      </div>
+      </div>
+    </div>
+  </form>
+  <div class="col-sm-10 col-lg-3 ml-5" id="pred">
+    <div class="row justify-content-center" id="parent" style="background-color: white; color: white; border-radius: 20px; box-shadow: 4px 4px 10px silver;">
+      <div class="col-lg-12 pt-3 pl-3 pb-2 justify-content-center">
+        <center><p style="font-size: 20px;">Your Result:</p></center>
+        <center><div id="thydis"><p style="font-size: 30px;"></p><p>{{result}}</p><br><p style="font-size: 20px; ">{{ type }}</p><p>Visit your doctor at the earliest</p></div></center>
+        <center><div id="notthydis"><p style="font-size: 30px;">You are not at risk!!</p><p>Avoid processed food, soy products and smoking to save youself from thyroid dysfunction</p></div></center>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+<div class="bottom-align-text mt-1 pb-2">
+    <div class="text-center">
+    <hr style="background-color: darkgray;">
+    <div class="col-sm-9 col-lg-12" style="color: black">
+      * Thyroid Disease Predictor uses a machine learning technique to determine
+      the likelihood of thyroid dysfunction and its type.
+    </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var output = "{{ prediction }}";
+    console.log(output)
+    if(output == 'thydis'){
+      document.getElementById("parent").style.display = "block";
+      document.getElementById("thydis").style.display = "block";
+      document.getElementById("notthydis").style.display = 'none';
+      document.getElementById("parent").style.backgroundColor = "rgba(252, 42, 42, 0.8)";
+    }
+    if(output == 'notthydis') {
+      document.getElementById("parent").style.display = "block";
+      document.getElementById("notthydis").style.display = "block";
+      document.getElementById("thydis").style.display = 'none';
+      document.getElementById("parent").style.backgroundColor = "rgba(69, 228, 69, 0.7)";
+    }
+    if(output == '') {
+      document.getElementById("parent").style.display = "none";
+    }
+  </script>
+</body>
+</html>
+
+<!--
+  rgba(69, 228, 69, 0.7); --green
+  rgba(252, 42, 42, 0.8); --red
+-->
